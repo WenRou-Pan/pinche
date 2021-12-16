@@ -8,10 +8,10 @@
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from infrastructure -->
     </parent>
-    <groupId>com.yangkw</groupId>
-    <artifactId>pin</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
-    <name>pin</name>
+    <groupId>com.pinche</groupId>
+    <artifactId>server</artifactId>
+    <version>1.0.0</version>
+    <name>server</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -115,7 +115,7 @@
     </dependencies>
 
     <build>
-        <finalName>SATPWEB</finalName>
+        <finalName>pinche</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
