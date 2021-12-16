@@ -32,6 +32,14 @@ for (let i = 5; i <= 23; i++) {
 for (let i = 2; i <= 6; i++) {
   partnerNums.push(i);
 }
+let curDay,curHour;
+if (date.getHours()<5){
+  curHour = 5;
+  curDay = date.getDate();
+}else if (date.getHours()>23){
+  curHour = 5;
+  curDay = date.getDate()+1;
+}
 Page({
   data: {
     activeIndex: 0,
@@ -41,11 +49,11 @@ Page({
     months,
     month: date.getMonth()+1,
     days,
-    day: date.getDate(),
+    day: curDay,
     hours,
-    hour:date.getHours(),
+    hour:curHour,
     minutes,
-    minute:date.getMinutes(),
+    minute:0,
     partnerNums,
     partnerNum:2,
     publishShow:false,
@@ -56,7 +64,7 @@ Page({
     publishView:true,
     orderList: [],
     orderShow:false,
-    value: [0, date.getDate()-1, date.getHours()-5, 0, 0]
+    value: [0, date.getDate()-1, date.getHours()<5?date.getHours():date.getHours()-5, 0, 0]
   },
   onPullDownRefresh: function (){
      // this.checkCondition()
