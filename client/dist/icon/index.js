@@ -1,10 +1,22 @@
 Component({
     externalClasses: ['i-class'],
 
-    relations: {
-        '../grid-item/index': {
-            type: 'parent'
+    properties: {
+        type: {
+            type: String,
+            value: ''
+        },
+        custom: {
+            type: String,
+            value: ''
+        },
+        size: {
+            type: Number,
+            value: 14
+        },
+        color: {
+            type: String,
+            value: ''
         }
-    },
-
+    }
 });
