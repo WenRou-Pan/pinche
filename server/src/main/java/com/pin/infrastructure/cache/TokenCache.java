@@ -7,9 +7,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 /**
- * 类UserTokenManager.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-22
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Component
 @CacheConfig(cacheNames = "tokenMap")

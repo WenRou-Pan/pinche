@@ -5,9 +5,8 @@ import com.pin.domain.order.OrderVO;
 import java.util.List;
 
 /**
- * 类OwnOrderResponse.java
- *
- * @author kaiwen.ykw 2018-12-31
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class OwnOrderResponse extends BaseResponse {
     private List<OrderVO> orderList;

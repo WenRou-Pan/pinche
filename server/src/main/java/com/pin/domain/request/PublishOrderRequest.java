@@ -6,9 +6,8 @@ import com.pin.domain.order.TimeDTO;
 import javax.validation.constraints.NotNull;
 
 /**
- * 类PublishOrderRequest.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-26
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class PublishOrderRequest extends BaseRequest {
     /**

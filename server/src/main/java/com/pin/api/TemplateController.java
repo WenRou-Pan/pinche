@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 类TemplateController.java
- *
- * @author kaiwen.ykw 2019-01-02
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @RestController
 @RequestMapping("template")

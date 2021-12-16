@@ -3,9 +3,8 @@ package com.pin.domain.request;
 import com.pin.domain.address.Dot;
 
 /**
- * 类AdviceOrderRequest.java 的实现描述：
- *
- * @author kaiwen.ykw 2019-04-10
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class AdviceOrderRequest extends BaseRequest{
     private Dot dot;

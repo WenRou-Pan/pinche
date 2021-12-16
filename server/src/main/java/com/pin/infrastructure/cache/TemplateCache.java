@@ -6,9 +6,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 /**
- * 类TemplateCache.java
- *
- * @author kaiwen.ykw 2019-01-02
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Component
 @CacheConfig(cacheNames = "templateMap")

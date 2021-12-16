@@ -4,9 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 类MessageBody.java
- *
- * @author kaiwen.ykw 2018-12-29
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class MessageBody {
     private UserInfoForChat info;

@@ -3,9 +3,8 @@ package com.pin.domain.request;
 import javax.validation.constraints.NotNull;
 
 /**
- * 类JoinOrderRequest.java
- *
- * @author kaiwen.ykw 2019-01-01
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class PartnerOrderRequest extends BaseRequest {
     @NotNull(message = "orderId can't null")

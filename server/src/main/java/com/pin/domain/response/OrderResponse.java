@@ -3,9 +3,8 @@ package com.pin.domain.response;
 import com.pin.domain.order.OrderVO;
 
 /**
- * 类OrderResponse.java
- *
- * @author kaiwen.ykw 2018-12-30
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class OrderResponse extends BaseResponse {
     private OrderVO order;

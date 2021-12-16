@@ -5,9 +5,8 @@ import com.pin.domain.address.Dot;
 import javax.validation.constraints.NotNull;
 
 /**
- * 类FuzzyOrderRequest.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-26
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class FuzzyOrderRequest extends BaseRequest {
     @NotNull(message = "startAddress can't null")

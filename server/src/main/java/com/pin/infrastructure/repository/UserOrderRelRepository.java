@@ -7,9 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 类UserOrderRelRepository.java
- *
- * @author kaiwen.ykw 2018-12-27
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Mapper
 public interface UserOrderRelRepository {

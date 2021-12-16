@@ -3,9 +3,8 @@ package com.pin.domain.user;
 import java.time.LocalDateTime;
 
 /**
- * 类UserDO.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-21
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class UserDO {
     private Integer id;

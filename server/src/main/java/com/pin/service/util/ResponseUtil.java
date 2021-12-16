@@ -3,9 +3,8 @@ package com.pin.service.util;
 import com.pin.domain.response.BaseResponse;
 
 /**
- * 类ResponseUtil.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-22
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class ResponseUtil {
     private ResponseUtil() {

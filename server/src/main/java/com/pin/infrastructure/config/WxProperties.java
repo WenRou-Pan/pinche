@@ -4,9 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 类WxProperties.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-26
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Configuration
 @ConfigurationProperties(prefix = "wx")

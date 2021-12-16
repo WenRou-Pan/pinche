@@ -20,9 +20,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 类GeoCache.java
- *
- * @author kaiwen.ykw 2018-12-27
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Component
 public abstract class AbstractGeoCache {

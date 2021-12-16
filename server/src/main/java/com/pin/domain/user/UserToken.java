@@ -1,9 +1,8 @@
 package com.pin.domain.user;
 
 /**
- * 类UserToken.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-22
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class UserToken {
     private Integer userId;

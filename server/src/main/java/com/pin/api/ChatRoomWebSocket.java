@@ -29,9 +29,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 类ChatRoomWS.java
- *
- * @author kaiwen.ykw 2018-12-29
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @ServerEndpoint(value = "/chatRoom/{orderId}/{token}")
 @Component

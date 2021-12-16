@@ -1,9 +1,8 @@
 package com.pin.domain.chat;
 
 /**
- * 类UserInfoForChat.java
- *
- * @author kaiwen.ykw 2018-12-29
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class UserInfoForChat {
     private String nickName;

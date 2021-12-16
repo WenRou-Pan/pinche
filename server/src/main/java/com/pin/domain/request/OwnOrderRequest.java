@@ -2,9 +2,8 @@ package com.pin.domain.request;
 
 
 /**
- * 类OwnOrderRequest.java
- *
- * @author kaiwen.ykw 2018-12-31
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class OwnOrderRequest extends BaseRequest {
 }

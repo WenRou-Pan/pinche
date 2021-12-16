@@ -5,9 +5,8 @@ import com.pin.domain.address.GeoAddress;
 import java.time.LocalDateTime;
 
 /**
- * 类Order.java
- *
- * @author kaiwen.ykw 2018-12-26
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class OrderVO {
     /**

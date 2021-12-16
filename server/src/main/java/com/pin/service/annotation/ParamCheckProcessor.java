@@ -16,9 +16,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * 类LoginCheckAopProcessor.java的实现描述：TODO
- *
- * @author kaiwen.ykw 2018-12-27
+ * @author Parmaze
+ * @date 2021/12/16
  */
 @Component
 @Aspect
@@ -60,7 +59,7 @@ public class ParamCheckProcessor {
     }
 
     private String error(BindingResult result) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         List<ObjectError> list = result.getAllErrors();
         for (ObjectError error : list) {
             String msg = error.getDefaultMessage();

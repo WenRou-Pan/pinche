@@ -1,9 +1,8 @@
 package com.pin.domain.chat;
 
 /**
- * 类MessageDO.java
- *
- * @author kaiwen.ykw 2018-12-30
+ * @author Parmaze
+ * @date 2021/12/16
  */
 public class MessageDO {
     private Integer id;
