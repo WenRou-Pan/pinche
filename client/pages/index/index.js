@@ -14,7 +14,7 @@ const partnerNums = []
 
 let m = date.getMonth() + 1;
 for (let i = 1; i <= 3; i++) {
-  months.push(m)
+  months.push(m);
   if(++m > 12){
     m=1;
   }
@@ -23,13 +23,14 @@ for (let i = 1; i <= 3; i++) {
 for (let i = 1; i <= 31; i++) {
   days.push(i)
 }
+
 for (let i = 5; i <= 23; i++) {
   hours.push(i)
 }
   minutes.push(0)
   minutes.push(30)
-for (let i = 2; i <= 4; i++) {
-  partnerNums.push(i)
+for (let i = 2; i <= 6; i++) {
+  partnerNums.push(i);
 }
 Page({
   data: {
@@ -55,24 +56,21 @@ Page({
     publishView:true,
     orderList: [],
     orderShow:false,
-    value: [0, date.getDate()-1, 3, 0, 0]
+    value: [0, date.getDate()-1, date.getHours()-5, 0, 0]
   },
   onPullDownRefresh: function (){
      // this.checkCondition()
   },
   onReady: function () {
-
   //   if (!app.globalData.hasLogin){
   //     wx.navigateTo({
   //       url: "/pages/login/login"
   //     });
   //  }
-
     user.checkLogin().catch(() => {
      wx.navigateTo({
         url: "/pages/login/login"
       });
-
     });
 
   },

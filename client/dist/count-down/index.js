@@ -54,6 +54,7 @@ Component({
                 day = this.formatNum(parseInt(gapTime / 86400));
                 let lastTime = gapTime % 86400;
                 const hour = this.formatNum(parseInt(lastTime / 3600));
+                console.log(hour);
                 lastTime = lastTime % 3600;
                 const minute = this.formatNum(parseInt(lastTime / 60));
                 const second = this.formatNum(lastTime % 60);
