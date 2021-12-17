@@ -9,7 +9,7 @@ Page({
    */
   data: {
     orderList: [],
-    msgShow:false
+    msgShow: false
 
   },
 
@@ -20,8 +20,7 @@ Page({
 
   },
 
-  getAdviceOrders : function(res){
-    
+  getAdviceOrders: function (res) {
     var dot = {
       latitude: res.latitude,
       longitude: res.longitude
@@ -35,7 +34,7 @@ Page({
         if (res.adviceList.length === 0) {
           this.setData({
             msgShow: true,
-            orderList:[]
+            orderList: []
           })
         } else {
           this.setData({
@@ -44,7 +43,6 @@ Page({
           })
         }
       }
-
     }).catch(res => {
       wx.hideLoading()
       util.showErrorToast("服务器繁忙,稍后再来吧")
@@ -88,7 +86,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this
+    wx.getLocation({
+      success: function (res) {
+        that.getAdviceOrders(res);
+        wx.stopPullDownRefresh();
+      }
+    })
   },
 
   /**
@@ -113,8 +117,7 @@ Page({
       if (!res.success) {
         util.showErrorToast('已加入该行程')
       }
-    }).catch(res => {
-    })
+    }).catch(res => {})
     wx.navigateTo({
       url: '/pages/room/room?orderId=' + e.target.dataset.id,
     })

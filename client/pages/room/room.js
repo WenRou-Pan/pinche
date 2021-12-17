@@ -84,7 +84,6 @@ Page({
       } else {
         var list = that.data.contentList
         var json = JSON.parse(onMessage.data)
-
         if (json.length > 1) {
           for (let i = 0; i < json.length; i++) {
             list.push(json[i])
@@ -97,7 +96,6 @@ Page({
         that.setData({
           contentList: list,
           scrollTop: 99999999
-
         })
       }
     })

@@ -1,6 +1,9 @@
 <view class="card">
   <scroll-view scroll-y='true' style="height: 1000rpx;" class="chat-content" scroll-with-animation scroll-top="{{scrollTop}}">
-    <view style="text-align: center;line-height: 1000rpx;" class='warn' wx:if="{{warn}}">暂无行程记录,快去发布吧</view>
+    <view style="text-align: center;white-space:pre-wrap" class='warn' wx:if="{{warn}}">
+      <image style="align-self: center;" src="/images/tabbar/msg_none.jpg"></image>
+      <txet>\n暂无行程记录\n快去发布吧</txet>
+    </view>
     <view wx:elif="{{orderList.length!==0}}">
       <view wx:for="{{orderList}}" wx:key="{{item.id}}">
         <view class="orderCard">

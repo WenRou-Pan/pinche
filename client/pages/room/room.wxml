@@ -7,7 +7,6 @@
       </view>
     </view>
   </view>
-
   <scroll-view scroll-y='true' class="chat-content" style="height: {{chatHeight}}px" scroll-with-animation scroll-top="{{scrollTop}}">
     <view wx:if="{{contentList.length!==0}}">
       <view wx:for="{{contentList}}" wx:key="{{index}}">
@@ -24,7 +23,6 @@
         <view wx:if="{{item.ownMsg === true}}" class="chat-content-list right">
           <image class="chat-content-list-avatar" src="{{item.info.avatarUrl}}"></image>
           <view class="chat-content-list-content " data-index="{{index}}">
-
             <view class="chat-content-list-msg">
               <text selectable='true'>{{item.message}}</text>
               <view class='over-read-tip '></view>
@@ -34,12 +32,9 @@
       </view>
     </view>
   </scroll-view>
-
   <view class='inputArea' style="margin-bottom: 20rpx;">
     <input class='area' type='text' maxlength="500" confirm-type="send" value="{{textMessage}}" bindconfirm="chatInputSendTextMessage">
     </input>
-
-
   </view>
 
 </view>

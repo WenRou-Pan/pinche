@@ -15,8 +15,8 @@ const partnerNums = []
 let m = date.getMonth() + 1;
 for (let i = 1; i <= 3; i++) {
   months.push(m);
-  if(++m > 12){
-    m=1;
+  if (++m > 12) {
+    m = 1;
   }
 }
 
@@ -27,18 +27,21 @@ for (let i = 1; i <= 31; i++) {
 for (let i = 5; i <= 23; i++) {
   hours.push(i)
 }
-  minutes.push(0)
-  minutes.push(30)
+minutes.push(0)
+minutes.push(30)
 for (let i = 2; i <= 6; i++) {
   partnerNums.push(i);
 }
-let curDay,curHour;
-if (date.getHours()<5){
-  curHour = 5;
+let curDay, curHour;
+if (curHour < 5) {
   curDay = date.getDate();
-}else if (date.getHours()>23){
   curHour = 5;
-  curDay = date.getDate()+1;
+} else if (curHour > 23) {
+  curDay = date.getDate() + 1;
+  curHour = 5;
+} else {
+  curDay = date.getDate();
+  curHour = date.getHours() + 1;
 }
 Page({
   data: {
@@ -47,45 +50,46 @@ Page({
     sliderLeft: 0,
     year: date.getFullYear(),
     months,
-    month: date.getMonth()+1,
+    month: date.getMonth() + 1,
     days,
     day: curDay,
     hours,
-    hour:curHour,
+    hour: curHour,
     minutes,
-    minute:0,
+    minute: 0,
     partnerNums,
-    partnerNum:2,
-    publishShow:false,
-    endName:null,
-    startName:null,
-    startAddress:null,
-    endAddress:null,
-    publishView:true,
+    partnerNum: 2,
+    publishShow: false,
+    endName: null,
+    startName: null,
+    startAddress: null,
+    endAddress: null,
+    publishView: true,
     orderList: [],
-    orderShow:false,
-    value: [0, date.getDate()-1, date.getHours()<5?date.getHours():date.getHours()-5, 0, 0]
+    orderShow: false,
+    value: [0, date.getDate() - 1, date.getHours() < 5 ? date.getHours() : date.getHours() - 4, 0, 0]
   },
-  onPullDownRefresh: function (){
-     // this.checkCondition()
+  onPullDownRefresh: function () {
+    this.checkCondition();
+    wx.stopPullDownRefresh();
   },
   onReady: function () {
-  //   if (!app.globalData.hasLogin){
-  //     wx.navigateTo({
-  //       url: "/pages/login/login"
-  //     });
-  //  }
+    //   if (!app.globalData.hasLogin){
+    //     wx.navigateTo({
+    //       url: "/pages/login/login"
+    //     });
+    //  }
     user.checkLogin().catch(() => {
-     wx.navigateTo({
+      wx.navigateTo({
         url: "/pages/login/login"
       });
     });
 
   },
-  chooseStart:function(){
-    var that=this
+  chooseStart: function () {
+    var that = this
     wx.chooseLocation({
-      success: function(res) {
+      success: function (res) {
         that.setData({
           startAddress: res,
           startName: res.name
@@ -99,21 +103,21 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         that.setData({
-          endAddress:res,
+          endAddress: res,
           endName: res.name
         });
         that.checkCondition();
       }
     })
   },
-  checkCondition:function(){
-    if(this.data.endAddress!=null && this.data.startAddress!=null){
+  checkCondition: function () {
+    if (this.data.endAddress != null && this.data.startAddress != null) {
       wx.showLoading({
         title: '加载中...',
       });
       var startAddress = {
         latitude: this.data.startAddress.latitude,
-        longitude:this.data.startAddress.longitude
+        longitude: this.data.startAddress.longitude
       }
       var endAddress = {
         latitude: this.data.endAddress.latitude,
@@ -123,9 +127,9 @@ Page({
         startDot: startAddress,
         endDot: endAddress,
         token: wx.getStorageSync('token')
-      },'POST').then(res=>{
+      }, 'POST').then(res => {
         wx.hideLoading();
-        if(res.success){
+        if (res.success) {
           if (res.orderList.length === 0) {
             this.setData({
               publishView: true,
@@ -137,30 +141,30 @@ Page({
               orderShow: true,
             })
           }
-            this.setData({
-              publishShow:true,
-              orderList: res.orderList
-            })
+          this.setData({
+            publishShow: true,
+            orderList: res.orderList
+          })
         }
 
-      }).catch(res=>{
+      }).catch(res => {
         wx.hideLoading()
         util.showErrorToast("服务器繁忙,稍后再来吧")
       })
     }
   },
-  publish:function(e){
+  publish: function (e) {
     this.setData({
-      publishView:false
+      publishView: false
     })
     util.request(api.save, {
       "templateId": e.detail.formId,
       "token": wx.getStorageSync('token')
     }, 'POST')
   },
-  cancel:function(){
+  cancel: function () {
     this.setData({
-      publishView:true
+      publishView: true
     })
   },
 
@@ -180,35 +184,37 @@ Page({
       minute: this.data.minutes[val[3]],
       partnerNum: this.data.partnerNums[val[4]]
     })
-    if (this.data.month < date.getMonth()+1 && this.data.year ===date.getFullYear()){
+    if (this.data.month < date.getMonth() + 1 && this.data.year === date.getFullYear()) {
       this.setData({
-        year: this.data.year+1
+        year: this.data.year + 1
       })
     }
-    if(this.data.month>=date.getMonth()+1 && this.data.year>date.getFullYear()){
+    if (this.data.month >= date.getMonth() + 1 && this.data.year > date.getFullYear()) {
       this.setData({
-        year : date.getFullYear()
+        year: date.getFullYear()
       })
     }
-  
+
   },
-  confirm:function(e){
+  confirm: function (e) {
     var selectDate = new Date();
-    selectDate.setFullYear(this.data.year, this.data.month-1, this.data.day);
+    selectDate.setFullYear(this.data.year, this.data.month - 1, this.data.day);
+    selectDate.setHours(this.data.hour);
+    selectDate.setMinutes(this.data.minute);
     var today = new Date();
     if (selectDate < today) {
       util.showErrorToast("日期选择错误")
-    }
-    else {
+      return;
+    } else {
       var data = this.data;
       var that = this;
       util.request(api.publish, {
         startAddress: {
-          name:data.startAddress.name,
-          address:data.startAddress.address,
-          dot:{
-            latitude:data.startAddress.latitude,
-            longitude:data.startAddress.longitude
+          name: data.startAddress.name,
+          address: data.startAddress.address,
+          dot: {
+            latitude: data.startAddress.latitude,
+            longitude: data.startAddress.longitude
           }
         },
         endAddress: {
@@ -219,12 +225,12 @@ Page({
             longitude: data.endAddress.longitude
           }
         },
-        timeDTO:{
-        year:data.year,
-        month:data.month,
-        day:data.day,
-        hour:data.hour,
-        minute:data.minute
+        timeDTO: {
+          year: data.year,
+          month: data.month,
+          day: data.day,
+          hour: data.hour,
+          minute: data.minute
         },
         targetNum: data.partnerNum,
         token: wx.getStorageSync('token')
@@ -232,31 +238,31 @@ Page({
         if (res.success) {
           util.showSuccessToast();
           this.setData({
-            publishView:true
+            publishView: true
           })
           this.checkCondition()
-        }else{
-          util.showErrorToast("时间太早~")
+        } else {
+          util.showErrorToast("请求有误~")
         }
       }).catch(res => {
-        util.showErrorToast("时间太早~")
+        util.showErrorToast("请求超时~")
       })
     }
   },
 
-  
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     var that = this;
-    if(this.data.endAddress!=null && this.data.startAddress!=null){
+    if (this.data.endAddress != null && this.data.startAddress != null) {
       wx.showLoading({
         title: '加载中...',
       });
       var startAddress = {
         latitude: this.data.startAddress.latitude,
-        longitude:this.data.startAddress.longitude
+        longitude: this.data.startAddress.longitude
       }
       var endAddress = {
         latitude: this.data.endAddress.latitude,
@@ -266,9 +272,9 @@ Page({
         startDot: startAddress,
         endDot: endAddress,
         token: wx.getStorageSync('token')
-      },'POST').then(res=>{
+      }, 'POST').then(res => {
         wx.hideLoading();
-        if(res.success){
+        if (res.success) {
           if (res.orderList.length === 0) {
             this.setData({
               publishView: true,
@@ -280,19 +286,19 @@ Page({
               orderShow: true,
             })
           }
-            this.setData({
-              publishShow:true,
-              orderList: res.orderList
-            })
+          this.setData({
+            publishShow: true,
+            orderList: res.orderList
+          })
         }
 
-      }).catch(res=>{
+      }).catch(res => {
         wx.hideLoading()
         util.showErrorToast("服务器繁忙,稍后再来吧")
       })
     }
   },
-  join :function(e){
+  join: function (e) {
     util.request(api.join, {
       orderId: e.target.dataset.id,
       token: wx.getStorageSync('token')
@@ -300,10 +306,9 @@ Page({
       if (!res.success) {
         util.showErrorToast('已加入该行程')
       }
-    }).catch(res=>{
-    })
+    }).catch(res => {})
     wx.navigateTo({
-      url: '/pages/room/room?orderId='+e.target.dataset.id,
+      url: '/pages/room/room?orderId=' + e.target.dataset.id,
     })
     util.request(api.save, {
       templateId: e.detail.formId,

@@ -11,7 +11,10 @@
 
 <view wx:if="{{orderShow}}" class='card'>
   <scroll-view scroll-y style="height: 730rpx;">
-    <view style="text-align: center;line-height: 730rpx;" class='warn' wx:if="{{orderList.length === 0}}">暂无相似行程</view>
+    <view style="text-align: center;white-space:pre-wrap" class='warn' wx:if="{{orderList.length === 0}}">
+      <image style="align-self: center;" src="/images/tabbar/index_none.jpg"></image>
+      <txet>\n暂无相似行程</txet>
+    </view>
     <view wx:for="{{orderList}}" wx:key="id">
       <view class="orderCard">
         <i-row>
