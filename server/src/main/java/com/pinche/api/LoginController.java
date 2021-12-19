@@ -62,6 +62,9 @@ public class LoginController {
             id = userService.insert(info, result.getOpenid());
         } else {
             id = old.getId();
+            if (!"微信用户".equals(old.getNickName())){
+                info.getUserInfo().setNickName(old.getNickName());
+            }
             userService.update(info, result.getOpenid());
         }
         String token = cacheService.addUserId(id, result.getSessionKey(), result.getOpenid());
