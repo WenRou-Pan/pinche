@@ -89,8 +89,6 @@ public class ChatRoomWebSocket {
                 session.getBasicRemote().sendText(a);
             }
         }
-
-
     }
 
     @OnMessage
