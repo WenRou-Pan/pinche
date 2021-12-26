@@ -2,21 +2,21 @@ package com.pinche.service;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaTemplateData;
-import cn.binarywang.wx.miniapp.bean.WxMaTemplateMessage;
+import cn.binarywang.wx.miniapp.bean.WxMaUniformMessage;
 import com.google.common.base.Preconditions;
-import com.pinche.domain.request.PartnerOrderRequest;
-import com.pinche.domain.request.PublishOrderRequest;
-import com.pinche.infrastructure.repository.OrderRepository;
-import com.pinche.infrastructure.repository.UserOrderRelRepository;
 import com.pinche.domain.address.GeoAddress;
 import com.pinche.domain.address.PublishResult;
-import com.pinche.domain.order.OrderVO;
 import com.pinche.domain.order.OrderDO;
+import com.pinche.domain.order.OrderVO;
 import com.pinche.domain.order.TimeDTO;
 import com.pinche.domain.relation.UserOrderRelDO;
 import com.pinche.domain.request.AdviceOrderRequest;
 import com.pinche.domain.request.FuzzyOrderRequest;
+import com.pinche.domain.request.PartnerOrderRequest;
+import com.pinche.domain.request.PublishOrderRequest;
 import com.pinche.infrastructure.cache.TemplateCache;
+import com.pinche.infrastructure.repository.OrderRepository;
+import com.pinche.infrastructure.repository.UserOrderRelRepository;
 import com.pinche.infrastructure.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -243,13 +243,13 @@ public class OrderService {
     }
 
     private void templateNotify(String receiver, String formId, String[] params) {
-        WxMaTemplateMessage msg = new WxMaTemplateMessage();
+        WxMaUniformMessage msg = new WxMaUniformMessage();
         msg.setTemplateId(templateId);
         msg.setToUser(receiver);
         msg.setFormId(formId);
         msg.setData(createMsgData(params));
         try {
-            wxMaService.getMsgService().sendTemplateMsg(msg);
+            wxMaService.getMsgService().sendUniformMsg(msg);
         } catch (Exception e) {
             LOG.error("send Template Message error,receiver:{}", receiver);
         }

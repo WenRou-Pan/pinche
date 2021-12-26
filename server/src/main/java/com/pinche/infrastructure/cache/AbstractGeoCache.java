@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.pinche.domain.address.Dot;
 import com.pinche.domain.order.OrderCacheDO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.GeoResult;
@@ -27,6 +28,9 @@ import java.util.List;
 public abstract class AbstractGeoCache {
     @Autowired
     protected StringRedisTemplate redisTemplate;
+
+    @Value("${fuzzy.distance}")
+    private double distanceValue;
 
     /**
      * 增加缓存
@@ -55,10 +59,9 @@ public abstract class AbstractGeoCache {
     }
 
     /**
-     * 查询相近orderId
+     * 查询附近orderId
      *
      * @param dot 坐标
-     * @return
      */
     public abstract List<Integer> findOrderId(Dot dot);
 
@@ -66,16 +69,16 @@ public abstract class AbstractGeoCache {
         List<Integer> orderIdList = new LinkedList<>();
         GeoOperations<String, String> operations = redisTemplate.opsForGeo();
         Point point = new Point(dot.getLongitude(), dot.getLatitude());
-        Distance distance = new Distance(3, RedisGeoCommands.DistanceUnit.KILOMETERS);
+        Distance distance = new Distance(distanceValue, RedisGeoCommands.DistanceUnit.KILOMETERS);
         Circle circle = new Circle(point, distance);
         GeoResults<RedisGeoCommands.GeoLocation<String>> geoResults = operations.radius(key, circle);
         if (geoResults == null) {
             return Collections.emptyList();
         }
-        for (GeoResult<RedisGeoCommands.GeoLocation<String>> x : geoResults.getContent()) {
-            OrderCacheDO cache = JSON.parseObject(x.getContent().getName(), OrderCacheDO.class);
+        for (GeoResult<RedisGeoCommands.GeoLocation<String>> geo : geoResults.getContent()) {
+            OrderCacheDO cache = JSON.parseObject(geo.getContent().getName(), OrderCacheDO.class);
             if (cache.getTargetTime() != null && cache.getTargetTime().isBefore(LocalDateTime.now())) {
-                operations.remove(key, x.getContent().getName());
+                operations.remove(key, geo.getContent().getName());
             } else {
                 orderIdList.add(cache.getOrderId());
             }

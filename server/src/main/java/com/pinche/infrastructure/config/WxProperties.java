@@ -1,6 +1,6 @@
 package com.pinche.infrastructure.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -8,9 +8,10 @@ import org.springframework.context.annotation.Configuration;
  * @date 2021/12/16
  */
 @Configuration
-@ConfigurationProperties(prefix = "wx")
 public class WxProperties {
+    @Value("${wx.appId}")
     private String appId;
+    @Value("${wx.secret}")
     private String secret;
 
     public String getAppId() {

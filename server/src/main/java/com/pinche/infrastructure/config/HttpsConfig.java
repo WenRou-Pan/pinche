@@ -1,4 +1,4 @@
-package com.pinche.config;
+package com.pinche.infrastructure.config;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
@@ -6,11 +6,13 @@ import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Parmaze
  * @date 2021/12/16
  */
+@Configuration
 public class HttpsConfig {
 
     @Bean
@@ -30,7 +32,8 @@ public class HttpsConfig {
         return tomcat;
     }
 
-    private Connector httpConnector() {
+    @Bean
+    public Connector httpConnector() {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
         // Connector 监听的 http 的端口号

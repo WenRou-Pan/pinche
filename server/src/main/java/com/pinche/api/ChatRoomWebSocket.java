@@ -35,12 +35,12 @@ import java.util.concurrent.ConcurrentHashMap;
 @ServerEndpoint(value = "/chatRoom/{orderId}/{token}")
 @Component
 public class ChatRoomWebSocket {
-    private static Logger LOG = LoggerFactory.getLogger(ChatRoomWebSocket.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ChatRoomWebSocket.class);
     private static CacheService cacheService;
     private static UserService userService;
     private static MessageService messageService;
-    private static Map<Integer, Set<Session>> sessionSet = new ConcurrentHashMap<>();
-    private static Map<Session, UserInfoForChat> infoMap = new ConcurrentHashMap<>();
+    private static final Map<Integer, Set<Session>> sessionSet = new ConcurrentHashMap<>();
+    private static final Map<Session, UserInfoForChat> infoMap = new ConcurrentHashMap<>();
     private Integer orderId;
     private Session session;
     private Integer userId;
