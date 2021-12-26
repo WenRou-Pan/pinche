@@ -30,7 +30,7 @@ public abstract class AbstractGeoCache {
     protected StringRedisTemplate redisTemplate;
 
     @Value("${fuzzy.distance}")
-    private double distanceValue;
+    private double fuzzyDistance;
 
     /**
      * 增加缓存
@@ -69,7 +69,7 @@ public abstract class AbstractGeoCache {
         List<Integer> orderIdList = new LinkedList<>();
         GeoOperations<String, String> operations = redisTemplate.opsForGeo();
         Point point = new Point(dot.getLongitude(), dot.getLatitude());
-        Distance distance = new Distance(distanceValue, RedisGeoCommands.DistanceUnit.KILOMETERS);
+        Distance distance = new Distance(fuzzyDistance, RedisGeoCommands.DistanceUnit.KILOMETERS);
         Circle circle = new Circle(point, distance);
         GeoResults<RedisGeoCommands.GeoLocation<String>> geoResults = operations.radius(key, circle);
         if (geoResults == null) {
