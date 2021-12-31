@@ -2,7 +2,7 @@ package com.pinche.domain.order;
 
 /**
  * @author Parmaze
- * @date 2021/12/16
+ * @since 2021/12/16
  */
 public class TimeDTO {
     private Integer year;

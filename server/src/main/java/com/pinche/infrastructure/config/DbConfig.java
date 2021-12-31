@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 /**
  * @author Parmaze
- * @date 2021/12/16
+ * @since 2021/12/16
  */
 @Configuration
 public class DbConfig {

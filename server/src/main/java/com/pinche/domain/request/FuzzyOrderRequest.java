@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @author Parmaze
- * @date 2021/12/16
+ * @since 2021/12/16
  */
 public class FuzzyOrderRequest extends BaseRequest {
     @NotNull(message = "startAddress can't null")
