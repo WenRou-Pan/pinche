@@ -30,7 +30,7 @@ public class ParamCheckProcessor {
         String methodName = joinPoint.getSignature().getName();
         Object target = joinPoint.getTarget();
         Method[] methods = target.getClass().getDeclaredMethods();
-        Class returnType = null;
+        Class<?> returnType = null;
         for (Method m : methods) {
             if (m.getName().equals(methodName)) {
                 returnType = m.getReturnType();

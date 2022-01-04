@@ -54,10 +54,10 @@ public class CacheService {
     }
 
     public List<Integer> findNearOrderId(FuzzyOrderRequest request) {
-        List<Integer> startOrderIdlist = startAbstractGeoCache.findOrderId(request.getStartDot());
-        List<Integer> endOrderIdlist = endAbstractGeoCache.findOrderId(request.getEndDot());
-        startOrderIdlist.retainAll(endOrderIdlist);
-        return startOrderIdlist;
+        List<Integer> startOrderIdList = startAbstractGeoCache.findOrderId(request.getStartDot());
+        List<Integer> endOrderIdList = endAbstractGeoCache.findOrderId(request.getEndDot());
+        startOrderIdList.retainAll(endOrderIdList);
+        return startOrderIdList;
     }
 
     public void publishCache(PublishOrderRequest request, Integer orderId) {
