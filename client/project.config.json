@@ -44,7 +44,6 @@
     "compileType": "miniprogram",
     "libVersion": "2.6.2",
     "appid": "wxbde60daa4be872d1",
-    "projectname": "滴滴打人",
     "debugOptions": {
         "hidedInDevtools": []
     },

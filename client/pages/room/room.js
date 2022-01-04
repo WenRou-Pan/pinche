@@ -7,8 +7,7 @@ var app = getApp();
 var socketOpen = false;
 var frameBuffer_Data, session, SocketTask;
 var that = this;
-var url = 'wss://pin.maxz.link/chatRoom/';
-// var url ='ws://localhost:8080/chatRoom/'
+var wsurl = api.webSocket;
 Page({
   /**
    * 页面的初始数据
@@ -164,7 +163,7 @@ Page({
       "token": token
     }
     SocketTask = wx.connectSocket({
-      url: url + orderId + "/" + token,
+      url: wsurl + orderId + "/" + token,
       data: data,
       header: {
         'content-type': 'application/json'

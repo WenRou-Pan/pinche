@@ -1,4 +1,4 @@
-/*
+﻿/*
  Navicat Premium Data Transfer
 
  Source Server         : tencent
@@ -33,7 +33,7 @@ CREATE TABLE `address`  (
   `hot_point` int(128) NULL DEFAULT 1 COMMENT '使用次数',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uni`(`latitude`, `longitude`, `type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for pin_order
@@ -52,7 +52,7 @@ CREATE TABLE `pin_order`  (
   `current_num` int(32) NULL DEFAULT 1,
   `deleted` tinyint(2) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for room_message
@@ -66,7 +66,7 @@ CREATE TABLE `room_message`  (
   `order_id` int(128) NULL DEFAULT NULL COMMENT 'orderid=roomid',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `orderid`(`order_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for user
@@ -90,7 +90,7 @@ CREATE TABLE `user`  (
   `deleted` tinyint(2) UNSIGNED NOT NULL DEFAULT 0 COMMENT '0存在1删除',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `openid`(`openid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for user_order_rel
@@ -105,6 +105,6 @@ CREATE TABLE `user_order_rel`  (
   `leader` tinyint(4) NOT NULL COMMENT '0队员1队长',
   `deleted` tinyint(2) NULL DEFAULT 0 COMMENT '0存在1不存在',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT =1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 SET FOREIGN_KEY_CHECKS = 1;
