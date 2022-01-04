@@ -11,7 +11,7 @@ import java.util.List;
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
-@Component(value = "end")
+@Component("end")
 public class EndCacheImpl extends AbstractGeoCache {
     @Override
     public void add(Dot dot, Integer orderId, LocalDateTime targetTime) {
