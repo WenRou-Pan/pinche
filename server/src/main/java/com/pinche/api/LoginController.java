@@ -38,6 +38,7 @@ public class LoginController {
     private CacheService cacheService;
 
     @GetMapping()
+    @ParamCheck()
     public String test() {
         return "success";
     }

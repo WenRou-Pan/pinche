@@ -3,6 +3,7 @@ package com.pinche.api;
 import com.pinche.service.CacheService;
 import com.pinche.domain.request.SaveTemplateIdRequest;
 import com.pinche.infrastructure.cache.TemplateCache;
+import com.pinche.service.annotation.ParamCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ public class TemplateController {
     private TemplateCache templateCache;
 
     @PostMapping("save")
+    @ParamCheck()
     public void save(@RequestBody SaveTemplateIdRequest request) {
         Integer userId = cacheService.getUserId(request.getToken());
         templateCache.setId(userId, request.getTemplateId());
