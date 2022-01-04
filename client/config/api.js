@@ -1,7 +1,7 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-var apiRoot = 'https://pin.maxz.link/';
-//  var apiRoot = 'http://localhost:8080/';
+// var apiRoot = 'https://pin.maxz.link/';
+ var apiRoot = 'https://localhost/';
 module.exports = {
   login: apiRoot + 'auth/login', //微信登录
   showFuzzyOrder: apiRoot + 'order/fuzzy', //按起点 终点显示行程 模糊匹配
@@ -13,5 +13,5 @@ module.exports = {
   save: apiRoot + 'template/save', //保存formid
   advice: apiRoot + 'order/advice', //推荐行程
   // websocket: 'wss://pin.maxz.link/chatRoom/' //聊天房间链接前缀
-  websocket: 'ws://localhost/chatRoom/' //聊天房间链接前缀
+  websocket: 'wss://localhost/chatRoom/' //聊天房间链接前缀
 };

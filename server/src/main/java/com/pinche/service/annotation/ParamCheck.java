@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Parmaze
+ * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
 

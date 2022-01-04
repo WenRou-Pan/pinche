@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author Parmaze
+ * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
 @ServerEndpoint(value = "/chatRoom/{orderId}/{token}")

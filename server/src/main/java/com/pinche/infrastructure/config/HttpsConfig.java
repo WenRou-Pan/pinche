@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author Parmaze
+ * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
 @Configuration

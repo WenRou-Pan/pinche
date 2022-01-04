@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Parmaze
+ * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
 @RestController
@@ -62,7 +62,7 @@ public class LoginController {
             id = userService.insert(info, result.getOpenid());
         } else {
             id = old.getId();
-            if (!"微信用户".equals(old.getNickName())){
+            if ("微信用户".equals(info.getUserInfo().getNickName())){
                 info.getUserInfo().setNickName(old.getNickName());
             }
             userService.update(info, result.getOpenid());

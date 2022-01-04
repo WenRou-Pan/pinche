@@ -7,7 +7,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 /**
- * @author kaiwen.ykw
+ * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
+ * @since 2021/12/16
  */
 @SpringBootApplication
 @EnableCaching
