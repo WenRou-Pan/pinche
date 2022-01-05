@@ -17,12 +17,13 @@ public class MyAppController {
 
     @PostMapping("login")
     public String login() {
-        LOG.info("接受到登录请求！");
+        LOG.info("接受到login请求");
         return "26350A96511E23416783FDD4B1B7F7AC";
     }
 
     @PostMapping("time")
     public String time() {
+        LOG.info("接受到time请求");
         return "9999-99-99 99:99:99";
     }
 
