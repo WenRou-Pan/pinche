@@ -27,6 +27,4 @@ public class MyAppController {
         LOG.info("接受到time请求");
         return "9999-99-99 99:99:99";
     }
-
-
 }
