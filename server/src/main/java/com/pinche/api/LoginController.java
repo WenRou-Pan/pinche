@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用于登录、存储用户数据
+ *
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
@@ -64,7 +65,7 @@ public class LoginController {
             id = userService.insert(info, result.getOpenid());
         } else {
             id = old.getId();
-            if ("微信用户".equals(info.getUserInfo().getNickName())){
+            if ("微信用户".equals(info.getUserInfo().getNickName())) {
                 info.getUserInfo().setNickName(old.getNickName());
             }
             userService.update(info, result.getOpenid());

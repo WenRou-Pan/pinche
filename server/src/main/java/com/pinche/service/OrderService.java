@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class OrderService {
-    private static Logger LOG = LoggerFactory.getLogger(OrderService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OrderService.class);
 
     @Autowired
     private CacheService cacheService;
@@ -158,7 +158,7 @@ public class OrderService {
             if (orderDO.getCurrentNum() < 1) {
                 orderRepository.logicDelete(orderId);
             } else {
-                Boolean isLeader = userOrderRelRepository.isLeader(orderId, userId) != null;
+                boolean isLeader = userOrderRelRepository.isLeader(orderId, userId) != null;
                 if (isLeader) {
                     List<Integer> ids = userOrderRelRepository.queryPartner(orderId);
                     Integer id = ids.stream().filter(x -> !x.equals(userId)).findFirst().get();

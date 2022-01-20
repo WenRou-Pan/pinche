@@ -37,4 +37,28 @@ public class Dot {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Dot)) {
+            return false;
+        }
+
+        Dot dot = (Dot) o;
+
+        if (latitude != null ? !latitude.equals(dot.latitude) : dot.latitude != null) {
+            return false;
+        }
+        return longitude != null ? longitude.equals(dot.longitude) : dot.longitude == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = latitude != null ? latitude.hashCode() : 0;
+        result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
+        return result;
+    }
 }

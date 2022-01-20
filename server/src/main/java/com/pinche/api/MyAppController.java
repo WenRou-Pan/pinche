@@ -1,7 +1,6 @@
 package com.pinche.api;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 提供给我自己的小软件验证接口
+ *
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2022/1/4
  */

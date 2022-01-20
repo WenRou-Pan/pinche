@@ -1,8 +1,8 @@
 package com.pinche.api;
 
-import com.pinche.service.CacheService;
 import com.pinche.domain.request.SaveTemplateIdRequest;
 import com.pinche.infrastructure.cache.TemplateCache;
+import com.pinche.service.CacheService;
 import com.pinche.service.annotation.ParamCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用戶加入行程
+ *
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */

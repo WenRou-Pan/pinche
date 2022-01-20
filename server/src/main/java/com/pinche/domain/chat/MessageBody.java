@@ -8,8 +8,8 @@ import java.util.Date;
  * @since 2021/12/16
  */
 public class MessageBody {
+    private final String time;
     private UserInfoForChat info;
-    private String time;
     private String message;
     private Boolean ownMsg;
 

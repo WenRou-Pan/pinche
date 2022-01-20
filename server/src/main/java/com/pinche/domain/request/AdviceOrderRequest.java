@@ -6,7 +6,7 @@ import com.pinche.domain.address.Dot;
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
-public class AdviceOrderRequest extends BaseRequest{
+public class AdviceOrderRequest extends BaseRequest {
     private Dot dot;
 
     public Dot getDot() {
@@ -15,6 +15,11 @@ public class AdviceOrderRequest extends BaseRequest{
 
     public void setDot(Dot dot) {
         this.dot = dot;
+    }
+
+    @Override
+    public int hashCode() {
+        return dot != null ? dot.hashCode() : 0;
     }
 
     @Override
@@ -29,10 +34,5 @@ public class AdviceOrderRequest extends BaseRequest{
         AdviceOrderRequest that = (AdviceOrderRequest) o;
 
         return dot != null ? dot.equals(that.dot) : that.dot == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return dot != null ? dot.hashCode() : 0;
     }
 }

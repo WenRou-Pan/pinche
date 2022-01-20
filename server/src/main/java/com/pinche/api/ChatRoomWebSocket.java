@@ -7,8 +7,8 @@ import com.google.common.collect.Sets;
 import com.pinche.domain.chat.MessageBody;
 import com.pinche.domain.chat.UserInfoForChat;
 import com.pinche.service.CacheService;
-import com.pinche.service.UserService;
 import com.pinche.service.MessageService;
+import com.pinche.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用于小程序内聊天室的消息收发
+ *
  * @author <a href="https://github.com/WenRou-Pan">Parmaze</a>
  * @since 2021/12/16
  */
@@ -37,11 +38,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class ChatRoomWebSocket {
     private static final Logger LOG = LoggerFactory.getLogger(ChatRoomWebSocket.class);
+    private static final Map<Integer, Set<Session>> sessionSet = new ConcurrentHashMap<>();
+    private static final Map<Session, UserInfoForChat> infoMap = new ConcurrentHashMap<>();
     private static CacheService cacheService;
     private static UserService userService;
     private static MessageService messageService;
-    private static final Map<Integer, Set<Session>> sessionSet = new ConcurrentHashMap<>();
-    private static final Map<Session, UserInfoForChat> infoMap = new ConcurrentHashMap<>();
     private Integer orderId;
     private Session session;
     private Integer userId;
